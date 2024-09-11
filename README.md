@@ -2,7 +2,8 @@
 The package and simulations for Stest
 
 How to install Stest packages:
-install.packages("devtools") ##isntall "devtools" packages
+
+install.packages("devtools") ##install "devtools" packages
 library("devtools")
 install_github("StatisticsL/Stest/Stest")
 
