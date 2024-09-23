@@ -1,0 +1,18 @@
+export(MCH0)
+export(Stest)
+export(precalculatedmatrices)
+export(reduceXyfromAb)
+export(rqaffineLASSO)
+export(summaryStest)
+export(ztfaql)
+export(rescaleAb)
+export(rescaleW)
+
+S3method(plot,Stest)
+import(L1pack)
+import(quantreg)
+import(matlib)
+import(CVXR)
+
+importFrom("graphics", "axis", "lines", "matplot","hist")
+importFrom("stats","quantile","rnorm")
