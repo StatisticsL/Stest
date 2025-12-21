@@ -1,7 +1,8 @@
 # install_github("StatisticsL/Stest/Stest")
 library(Stest)
 library(quantmod)
-AMZN_data <- getSymbols(Symbols = "AMZN", src = "yahoo", from = "2022-08-25", to = "2024-08-27", auto.assign = FALSE)
+source("amzn.R")
+#AMZN_data <- getSymbols(Symbols = "AMZN", src = "yahoo", from = "2022-08-25", to = "2024-08-27", auto.assign = FALSE)
 
 timeseries=diff(log(AMZN_data$AMZN.Close))
 y=as.vector(timeseries[-1])
