@@ -56,8 +56,8 @@ plot.Stest=function(objStest,main=expression("Data"),xlab=expression("i"),ylab=e
      xaxis=c(histresult$breaks,objStest$lambda0data)
      hist(objStest$outMCH0$lambdas,freq = F,xlim = c(min(xaxis),max(xaxis)),xaxt="n",xaxt="n",
                     main=expression(paste("Estimated density of ",S^tau)),xlab = expression(lambda),right=FALSE,...)
-     axis(1,at=c(seq(min(xaxis),max(xaxis),length=5),objStest$outMCH0$s_critval,objStest$lambda0data),labels = c(seq(min(xaxis),max(xaxis),length=5),expression(c[alpha]^tau),expression(lambda[0]^tau)))
-
+     #axis(1,at=c(seq(min(xaxis),max(xaxis),length=5),objStest$outMCH0$s_critval,objStest$lambda0data),labels = c(seq(min(xaxis),max(xaxis),length=5),expression(c[alpha]^tau),expression(lambda[0]^tau)))
+     axis(1,at=c(round(seq(min(xaxis),max(xaxis),length=4),1),objStest$outMCH0$s_critval),labels = c(round(seq(min(xaxis),max(xaxis),length=4),1),expression(c[alpha]^tau)))
      #####second plot------------------------------------------------
      indexbumps=which(abs(diff(objStest$betahat)-objStest$b)>10e-05)
      lindexbumps=length(indexbumps)
@@ -75,8 +75,9 @@ plot.Stest=function(objStest,main=expression("Data"),xlab=expression("i"),ylab=e
      matplot(objStest$lambdas_seq, t(diag(homopowerrescalingtemp)%*%(diff(t(objStest$allbetahat)))-objStest$b),type="l",lty=1,col="black",
              ylab = expression(paste("A",hat(beta),"-b")),xlab = expression(lambda),xlim = c(min(xaxis),max(xaxis)),
              main=expression("Quantile affine LASSO path"),xaxt="n",...)#,xaxt="n"
-     axis(1,at=c(seq(min(xaxis),max(xaxis),length=5),objStest$outMCH0$s_critval,objStest$lambda0data),labels = c(seq(min(xaxis),max(xaxis),length=5),expression(c[alpha]^tau),expression(lambda[0]^tau)))
-     lines(rep(objStest$lambda0data,2),range(t(diag(homopowerrescalingtemp)%*%(diff(t(objStest$allbetahat)))-objStest$b)), lty=2,col="blue",lwd=2)
+     #axis(1,at=c(seq(min(xaxis),max(xaxis),length=5),objStest$outMCH0$s_critval,objStest$lambda0data),labels = c(seq(min(xaxis),max(xaxis),length=5),expression(c[alpha]^tau),expression(lambda[0]^tau)))
+     axis(1,at=c(round(seq(min(xaxis),max(xaxis),length=4),1),objStest$outMCH0$s_critval),labels = c(round(seq(min(xaxis),max(xaxis),length=4),1),expression(c[alpha]^tau)))
+     #lines(rep(objStest$lambda0data,2),range(t(diag(homopowerrescalingtemp)%*%(diff(t(objStest$allbetahat)))-objStest$b)), lty=2,col="blue",lwd=2)
      lines(rep(objStest$outMCH0$s_critval,2), range(t(diag(homopowerrescalingtemp)%*%(diff(t(objStest$allbetahat)))-objStest$b)),lty=2,col="blue",lwd=2)
 
      #####fourth plot------------------------------------------------
